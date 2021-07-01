@@ -25,7 +25,7 @@ async function init() {
 
     console.log("Scanning for bad peers...");
 	//Grab our current peers..
-    let output = spawn(path.join(config.executableDir, "chaingreen"), ["show", "-c", ], {
+    let output = spawn(path.join(config.executableDir, "chives"), ["show", "-c", ], {
         shell: true,
         detached: false
     });
@@ -77,7 +77,7 @@ async function processData(data) {
     }
 };
 
-//Parses output of chaingreen show -c
+//Parses output of chives show -c
 async function convertToNode(data) {
     let arr = data.split(' ');
     arr = arr.filter(e => e);
@@ -94,7 +94,7 @@ async function convertToNode(data) {
 
 //Bye!
 async function removeNode(id) {
-    spawn(path.join(config.executableDir, "chaingreen"), ["show", "-r", id], {
+    spawn(path.join(config.executableDir, "chives"), ["show", "-r", id], {
         shell: true,
         detached: false
     });
@@ -102,7 +102,7 @@ async function removeNode(id) {
 
 //Adds a new node
 async function addNode(ip) {
-    spawn("chaingreen", ["show", "-a", `${ip}:8744`], {
+    spawn("chives", ["show", "-a", `${ip}:8744`], {
         shell: true,
         detached: false,
         cwd: executable
@@ -112,7 +112,7 @@ async function addNode(ip) {
 //Restarts all services. Resolves as a promise
 async function restart() {
     return new Promise(function (resolve, reject) {
-        let proc = spawn(path.join(config.executableDir, "chaingreen"), ["start", "all", "-r"], {
+        let proc = spawn(path.join(config.executableDir, "chives"), ["start", "all", "-r"], {
             shell: true,
             detached: false
         });

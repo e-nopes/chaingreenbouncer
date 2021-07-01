@@ -1,5 +1,5 @@
 {	
-    "executableDir": "C:/Users/Joshua/AppData/Local/chaingreen-blockchain/app-1.1.73/resources/app.asar.unpacked/daemon/",
+    "executableDir": "/home/user/chives-blockchain/venv/bin/chives",
     "scanTime": 10000,
 	"restartEnabled": true,
 	"restartInterval": 3600000
